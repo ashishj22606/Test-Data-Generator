@@ -1,0 +1,14 @@
+# Configuration settings for the test data generator
+data_generation:
+  output_path: /app/data/generated_data
+  num_records: 1000
+  fields:
+    - name
+    - email
+
+# Snowflake database configuration
+snowflake:
+  warehouse: YOUR_WAREHOUSE
+  database: YOUR_DATABASE
+  schema: YOUR_SCHEMA
+  table: YOUR_TABLE

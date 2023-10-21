@@ -1,16 +1,18 @@
 # snowflake/snowflake_connection.py
 
+import os
 import snowflake.connector
 
-SNOWFLAKE_ACCOUNT = "your_account_url"
-SNOWFLAKE_USER = "your_username"
-SNOWFLAKE_PASSWORD = "your_password"
-SNOWFLAKE_DATABASE = "your_database"
-SNOWFLAKE_WAREHOUSE = "your_warehouse"
-SNOWFLAKE_SCHEMA = "your_schema"
+# Retrieve Snowflake secrets as environment variables
+SNOWFLAKE_ACCOUNT = os.environ.get("SNOWFLAKE_ACCOUNT")
+SNOWFLAKE_USER = os.environ.get("SNOWFLAKE_USER")
+SNOWFLAKE_PASSWORD = os.environ.get("SNOWFLAKE_PASSWORD")
+SNOWFLAKE_DATABASE = os.environ.get("SNOWFLAKE_DATABASE")
+SNOWFLAKE_WAREHOUSE = os.environ.get("SNOWFLAKE_WAREHOUSE")
+SNOWFLAKE_SCHEMA = os.environ.get("SNOWFLAKE_SCHEMA")
 
 def get_snowflake_connection():
-    return snowflake.connector.connect(
+    connection = snowflake.connector.connect(
         user=SNOWFLAKE_USER,
         password=SNOWFLAKE_PASSWORD,
         account=SNOWFLAKE_ACCOUNT,
@@ -18,3 +20,4 @@ def get_snowflake_connection():
         warehouse=SNOWFLAKE_WAREHOUSE,
         schema=SNOWFLAKE_SCHEMA
     )
+    return connection

@@ -8,10 +8,10 @@ services:
       - ./data:/app/data
       - ./snowflake:/app/snowflake
     environment:
-      - SNOWFLAKE_ACCOUNT=<Snowflake_Account>
-      - SNOWFLAKE_USER=<Snowflake_User>
-      - SNOWFLAKE_PASSWORD=<Snowflake_Password>
-      - SNOWFLAKE_DATABASE=<Snowflake_Database>
-      - SNOWFLAKE_WAREHOUSE=<Snowflake_Warehouse>
-      - SNOWFLAKE_SCHEMA=<Snowflake_Schema>
+      - SNOWFLAKE_ACCOUNT=${SNOWFLAKE_ACCOUNT}
+      - SNOWFLAKE_USER=${SNOWFLAKE_USER}
+      - SNOWFLAKE_PASSWORD=${SNOWFLAKE_PASSWORD}
+      - SNOWFLAKE_DATABASE=${SNOWFLAKE_DATABASE}
+      - SNOWFLAKE_WAREHOUSE=${SNOWFLAKE_WAREHOUSE}
+      - SNOWFLAKE_SCHEMA=${SNOWFLAKE_SCHEMA}
     command: python main.py
