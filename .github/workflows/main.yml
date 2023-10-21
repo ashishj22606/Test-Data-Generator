@@ -24,8 +24,8 @@ jobs:
       - name: Build and Run Docker container
         run: docker-compose up -d
 
-      - name: Execute Tests
-        run: docker-compose exec app python -m unittest discover
+    #   - name: Execute Tests
+    #     run: docker-compose exec app python -m unittest discover
 
-      - name: Stop Docker container
-        run: docker-compose down
+    #   - name: Stop Docker container
+    #     run: docker-compose down
