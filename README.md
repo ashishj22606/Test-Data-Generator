@@ -7,7 +7,7 @@ This Python project serves as a test data generator with Snowflake integration. 
 ## Project Structure
 
 The project is organized as follows:
-
+```plaintext
 test-data-generator/
 ├── Dockerfile
 ├── docker-compose.yml
@@ -31,7 +31,7 @@ test-data-generator/
 │ ├── snowflake_loader.py
 ├── README.md
 ├── requirements.txt
-
+```
 
 - `Dockerfile`: Defines the Docker container for the project.
 - `docker-compose.yml`: Orchestrates services and dependencies for running the project with Docker Compose.
