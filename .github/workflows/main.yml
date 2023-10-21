@@ -21,11 +21,20 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Build and Run Docker container
-        run: docker-compose up -d
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
 
-    #   - name: Execute Tests
-    #     run: docker-compose exec app python -m unittest discover
+      - name: Build and Push Docker Image to GitHub Container Registry
+        run: |
+          # Build the Docker image
+          docker build -t ghcr.io/${{ github.repository }}/your-image-name:latest .
 
-    #   - name: Stop Docker container
-    #     run: docker-compose down
+          # Authenticate with GitHub Container Registry
+          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
+
+          # Push the Docker image to GitHub Container Registry
+          docker push ghcr.io/${{ github.repository }}/your-image-name:latest
+        env:
+          DOCKER_BUILDKIT: 1
+
+    # Add more steps for your tests and Snowflake integration here
