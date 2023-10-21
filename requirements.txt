@@ -1,0 +1,8 @@
+# Snowflake Connector
+snowflake-connector-python
+
+# Data Generation Libraries
+Faker
+
+# YAML Configuration
+pyyaml

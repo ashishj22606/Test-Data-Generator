@@ -1,0 +1,17 @@
+version: '3'
+services:
+  app:
+    build: .
+    volumes:
+      - ./config:/app/config
+      - ./generators:/app/generators
+      - ./data:/app/data
+      - ./snowflake:/app/snowflake
+    environment:
+      - SNOWFLAKE_ACCOUNT=<Snowflake_Account>
+      - SNOWFLAKE_USER=<Snowflake_User>
+      - SNOWFLAKE_PASSWORD=<Snowflake_Password>
+      - SNOWFLAKE_DATABASE=<Snowflake_Database>
+      - SNOWFLAKE_WAREHOUSE=<Snowflake_Warehouse>
+      - SNOWFLAKE_SCHEMA=<Snowflake_Schema>
+    command: python main.py
