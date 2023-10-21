@@ -33,7 +33,7 @@ jobs:
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
 
           # Push the Docker image to GitHub Container Registry
-          docker push ghcr.io/${{ github.repository }}/your-image-name:latest
+          docker push ghcr.io/${{ github.repository }}/ashish-img-sfk-test-data-generator:latest
         env:
           DOCKER_BUILDKIT: 1
 
