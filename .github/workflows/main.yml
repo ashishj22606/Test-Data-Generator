@@ -24,16 +24,24 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v1
 
-      - name: Build and Push Docker Image to GitHub Container Registry
-        run: |
-          # Build the Docker image
-          docker build -t ghcr.io/${{ github.repository }}/ashish-img-sfk-test-data-generator:latest .
+      
 
-          # Authenticate with GitHub Container Registry
-          echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
-
-          # Push the Docker image to GitHub Container Registry
-          docker push ghcr.io/${{ github.repository }}/ashish-img-sfk-test-data-generator:latest
-        env:
-          DOCKER_BUILDKIT: 1
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v1
+      -
+        name: Login to DockerHub
+        uses: docker/login-action@v1
+        with:
+          username: ${{ secrets.DOCKER_USERNAME }}
+          password: ${{ secrets.DOCKER_PASSWORD }}
+      -
+        name: Build and push
+        id: docker_build
+        uses: docker/build-push-action@v2
+        with:
+          push: true
+          tags: user/app:latest
+      -
+        name: Image digest
+        run: echo ${{ steps.docker_build.outputs.digest }}
 
