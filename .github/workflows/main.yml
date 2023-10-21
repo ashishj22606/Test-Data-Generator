@@ -27,7 +27,7 @@ jobs:
       - name: Build and Push Docker Image to GitHub Container Registry
         run: |
           # Build the Docker image
-          docker build -t ghcr.io/${{ github.repository }}/your-image-name:latest .
+          docker build -t ghcr.io/${{ github.repository }}/ashish-img-sfk-test-data-generator:latest .
 
           # Authenticate with GitHub Container Registry
           echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.repository }} --password-stdin
