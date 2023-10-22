@@ -14,5 +14,5 @@ class TestYourProject(unittest.TestCase):
 
 # Example using pytest:
 def test_function_output():
-    result = generate_data()
+    result = generate_data(10)
     assert result.shape[0] == expected_value

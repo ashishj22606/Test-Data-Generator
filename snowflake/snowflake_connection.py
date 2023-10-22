@@ -2,6 +2,9 @@
 
 import os
 import snowflake.connector
+import sys
+sys.path.append("/home/jain22606/.local/lib/python3.10/site-packages/")
+
 
 # Retrieve Snowflake secrets as environment variables
 SNOWFLAKE_ACCOUNT = os.environ.get("SNOWFLAKE_ACCOUNT")

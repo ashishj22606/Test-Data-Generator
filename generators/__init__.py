@@ -7,8 +7,8 @@
 # You can import modules and functions that you want to make accessible
 # directly from the package namespace.
 
-from .name_generator import generate_name
-from .email_generator import generate_email
+#from .name_generator import generate_name
+#from .email_generator import generate_email
 # Import other generators as needed
 
 # You might also set some default configurations or values here.

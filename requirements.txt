@@ -10,3 +10,6 @@ pyyaml
 # Testing
 pytest
 unittest
+
+#pandas
+pandas
