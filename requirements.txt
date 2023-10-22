@@ -6,3 +6,7 @@ Faker
 
 # YAML Configuration
 pyyaml
+
+# Testing
+pytest
+unittest
